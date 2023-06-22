@@ -1,6 +1,6 @@
 import math
 print ("введите коэфицент для уровнения")
-print ("ax^4 - bx^2 + c:")
+print ("ax^4 + bx^2 + c:")
 a = float(input("a = "))
 b = float(input("b = "))
 c = float(input("c = "))
@@ -9,13 +9,24 @@ pow(a ** 0.5, b ** 0.5)
 discr = b ** 2 - 4 * a * c
 print("Дискриминант D = ", discr)
 
-if discr > 0:
-    x1 = (b - math.sqrt(discr)) / (2 * a)
-    x2 = (b + math.sqrt(discr)) / (2 * a)
-    print("x1 = ", x1, "x2 = ", x2)
-elif discr == 0:
-    x = -b / (2 * a)
-    print ('x = ', x)
+if discr < 0:
+    print("Корней у биквадратного уравнения ",a,"x**4 +",b,"x**2 +",c,"- нет")
+elif discr > 0:
+    y1 = (-b + D ** 0.5) / (2 * a)
+    y2 = (-b - D ** 0.5) / (2 * a)
+    x1 = -y1 ** 0.5
+    x2 = +y1 ** 0.5
+    x3 = -y2 ** 0.5
+    x4 = +y2 ** 0.5
+    print("У биквадратного уравнения ", a, "x**4 +", b, "x**2 +", c, "- четыре корня")
+    print("Корень 1:", x1)
+    print("Корень 2:", x2)
+    print("Корень 3:", x3)
+    print("Корень 4:", x4)
 else:
-    print("Корней нет")
-
+    y = -b / (2 * a)
+    x1 = +y ** 0.5
+    x2 = -y ** 0.5
+    print("У биквадратного уравнения ", a, "x**4 +", b, "x**2 +", c, "- два корня")
+    print("Корень 1:", x1)
+    print("Корень 2:", x2)
